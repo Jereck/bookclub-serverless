@@ -25,3 +25,15 @@ resource "aws_apigatewayv2_stage" "default" {
     Environment = var.environment
   }
 }
+
+resource "aws_apigatewayv2_authorizer" "cognito" {
+  name           = "${var.name}-authorizer"
+  api_id         = aws_apigatewayv2_api.this.id
+  authorizer_type = "JWT"
+  identity_sources = ["$request.header.Authorization"]
+
+  jwt_configuration {
+    audience = [var.client_id]
+    issuer   = "https://${var.user_pool_endpoint}"
+  }
+}

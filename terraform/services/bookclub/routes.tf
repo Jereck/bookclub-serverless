@@ -5,6 +5,8 @@ module "get_bookclubs_route" {
   route_key = "GET /bookclubs"
   lambda_arn = module.get_bookclubs_lambda.lambda_arn
   lambda_name = module.get_bookclubs_lambda.lambda_name
+  authorization_type = "JWT"
+  authorizer_id  = var.authorizer_id 
 }
 
 module "get_bookclub_route" {
@@ -14,6 +16,8 @@ module "get_bookclub_route" {
   route_key = "GET /bookclubs/{id}"
   lambda_arn = module.get_bookclub_lambda.lambda_arn
   lambda_name = module.get_bookclub_lambda.lambda_name
+  authorization_type = "JWT"
+  authorizer_id  = var.authorizer_id 
 }
 
 module "create_bookclub_route" {
@@ -23,6 +27,8 @@ module "create_bookclub_route" {
   route_key = "POST /bookclubs"
   lambda_arn = module.create_bookclub_lambda.lambda_arn
   lambda_name = module.create_bookclub_lambda.lambda_name
+  authorization_type = "JWT"
+  authorizer_id  = var.authorizer_id 
 }
 
 module "update_bookclub_route" {
@@ -32,6 +38,8 @@ module "update_bookclub_route" {
   route_key = "PATCH /bookclubs/{id}"
   lambda_arn = module.update_bookclub_lambda.lambda_arn
   lambda_name = module.update_bookclub_lambda.lambda_name
+  authorization_type = "JWT"
+  authorizer_id  = var.authorizer_id 
 }
 
 module "delete_bookclub_route" {
@@ -41,4 +49,6 @@ module "delete_bookclub_route" {
   route_key = "DELETE /bookclubs/{id}"
   lambda_arn = module.delete_bookclub_lambda.lambda_arn
   lambda_name = module.delete_bookclub_lambda.lambda_name
+  authorization_type = "JWT"
+  authorizer_id  = var.authorizer_id 
 }

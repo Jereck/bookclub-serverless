@@ -6,6 +6,8 @@ module "api" {
   source = "./modules/api_gateway"
   name = "bookclub-api"
   environment = "dev"
+  client_id           = module.cognito.client_id
+  user_pool_endpoint  = module.cognito.user_pool_endpoint
 }
 
 resource "aws_iam_role" "lambda_exec" {
@@ -38,4 +40,12 @@ module "bookclub_service" {
   api_id          = module.api.api_id
   execution_arn   = module.api.execution_arn
   lambda_role_arn = aws_iam_role.lambda_exec.arn
+}
+
+module "cognito" {
+  source = "./modules/cognito"
+  name   = "bookclub"
+
+  callback_urls = ["http://localhost:3000"]
+  logout_urls   = ["http://localhost:3000/logout"]
 }

@@ -23,6 +23,9 @@ resource "aws_apigatewayv2_route" "this" {
   api_id    = var.api_id
   route_key = var.route_key
   target    = "integrations/${aws_apigatewayv2_integration.this.id}"
+
+  authorization_type = var.authorizer_id != null ? "JWT" : "NONE"
+  authorizer_id      = var.authorizer_id
 }
 
 resource "aws_lambda_permission" "this" {

@@ -8,3 +8,13 @@ variable "environment" {
   type        = string
   default     = "dev"
 }
+
+variable "client_id" {
+  type        = string
+  description = "Cognito App Client ID"
+}
+
+variable "user_pool_endpoint" {
+  type        = string
+  description = "Cognito User Pool endpoint (issuer)"
+}
