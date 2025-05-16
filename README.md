@@ -146,3 +146,15 @@ bookclub_id, book_id, status, added_by, added_at
 | `/bookclubs`            | POST   | Create a book club                |
 | `/bookclubs/:id/invite` | POST   | Invite user to club               |
 | `/bookclubs/:id/books`  | POST   | Add book to club bookshelf        |
+
+## Future Thoughts
+- Role-based permissions for clubs
+- Push notifications (SNS or Firebase)
+- Real-time discussion threads per book
+- Export reading history
+- Mobile-first optimization with Expo frontend
+
+## Contributing
+- Use PRs with a feature/ prefix
+- Add checklist to each PR description
+- Run format/lint before pushing
