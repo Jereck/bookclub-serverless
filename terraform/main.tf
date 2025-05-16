@@ -32,3 +32,10 @@ module "bookshelf_service" {
   execution_arn   = module.api.execution_arn
   lambda_role_arn = aws_iam_role.lambda_exec.arn
 }
+
+module "bookclub_service" {
+  source          = "./services/bookclub"
+  api_id          = module.api.api_id
+  execution_arn   = module.api.execution_arn
+  lambda_role_arn = aws_iam_role.lambda_exec.arn
+}
